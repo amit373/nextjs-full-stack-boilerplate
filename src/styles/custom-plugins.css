@@ -326,7 +326,7 @@ Overlay Scrollbar - os-theme-thin-dark
 }
 
 .headerMenu .menuItem:hover > a::before {
-  @apply w-full ltr:right-auto left-0;
+  @apply w-full right-auto left-0;
 }
 .headerMenu .menuItem:hover > .megaMenu,
 .headerMenu .menuItem:hover > .subMenu {
@@ -352,7 +352,7 @@ Overlay Scrollbar - os-theme-thin-dark
 .mobileMenu li > ul > li > div > a:before {
   content: '';
   height: 1px;
-  @apply absolute top-1/2 flex w-1.5 bg-white ltr:left-1.5 md:w-2 md:left-3;
+  @apply absolute top-1/2 flex w-1.5 bg-white left-1.5 md:w-2 md:left-3;
 }
 
 /* Radio */

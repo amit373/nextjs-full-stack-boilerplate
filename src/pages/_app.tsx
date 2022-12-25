@@ -5,8 +5,7 @@ import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 import { appWithTranslation } from 'next-i18next';
 
-import { ErrorBoundary } from '@/components';
-import { PrivateRoute } from '@/libs';
+import { ErrorBoundary, PrivateRoute } from '@/components';
 import { theme } from '@/styles';
 import type { NextPageWithLayout } from '@/types';
 

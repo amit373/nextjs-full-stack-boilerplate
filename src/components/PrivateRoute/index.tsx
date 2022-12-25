@@ -1,14 +1,14 @@
+import BackArrowRound from '@mui/icons-material/ArrowBackRounded';
 import { useRouter } from 'next/router';
+import React from 'react';
 
-// import LoginView from '@/components/auth/login-form';
-// import { BackArrowRound } from '@/components/icons/back-arrow-round';
-// import Loader from '@/components/ui/loaders/spinner/spinner';
+import { Spinner } from '../../libs';
 
 interface IProps {
   children: any;
 }
 
-const PrivateRoute: React.FC<IProps> = ({ children }) => {
+export const PrivateRoute: React.FC<IProps> = ({ children }) => {
   const { back } = useRouter();
   const { isAuthorized } = { isAuthorized: false };
 
@@ -19,13 +19,9 @@ const PrivateRoute: React.FC<IProps> = ({ children }) => {
           className="absolute top-5 left-5 flex h-8 w-8 items-center justify-center text-gray-200 transition-colors hover:text-gray-400 md:top-1/2 md:left-10 md:-mt-8 md:h-16 md:w-16 md:text-gray-300"
           onClick={back}
         >
-          {/* <BackArrowRound /> */}
-          Back
+          <BackArrowRound />
         </button>
-        <div className="my-auto flex flex-col">
-          Login View
-          {/* <LoginView /> */}
-        </div>
+        <div className="my-auto flex flex-col">Login View</div>
       </div>
     );
   }
@@ -35,8 +31,5 @@ const PrivateRoute: React.FC<IProps> = ({ children }) => {
 
   // Session is being fetched, or no user.
   // If no user, useEffect() will redirect.
-  return <div>Loading...</div>;
-  // return <Loader showText={false} />;
+  return <Spinner showText={false} />;
 };
-
-export default PrivateRoute;
