@@ -3,18 +3,39 @@ import '../styles/global.css';
 import { ThemeProvider } from '@emotion/react';
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
+import { appWithTranslation } from 'next-i18next';
 
 import { ErrorBoundary } from '@/components';
+import { PrivateRoute } from '@/libs';
 import { theme } from '@/styles';
+import type { NextPageWithLayout } from '@/types';
 
-const MyApp = ({ Component, pageProps }: AppProps) => (
-  <ThemeProvider theme={theme}>
-    <SessionProvider session={pageProps.session}>
-      <ErrorBoundary>
-        <Component {...pageProps} />
-      </ErrorBoundary>
-    </SessionProvider>
-  </ThemeProvider>
-);
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
 
-export default MyApp;
+function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppPropsWithLayout) {
+  const authenticationRequired: boolean =
+    Component.authenticationRequired ?? false;
+
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <SessionProvider session={session}>
+          <ErrorBoundary>
+            {authenticationRequired ? (
+              <PrivateRoute>{<Component {...pageProps} />}</PrivateRoute>
+            ) : (
+              <Component {...pageProps} />
+            )}
+          </ErrorBoundary>
+        </SessionProvider>
+      </ThemeProvider>
+    </div>
+  );
+}
+
+export default appWithTranslation(MyApp);

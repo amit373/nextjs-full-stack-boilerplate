@@ -1,4 +1,6 @@
+import type { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { Main, Meta } from '@/layouts';
 
@@ -18,8 +20,10 @@ const Index: React.FC<IProps> = (): JSX.Element => {
 
 export default Index;
 
-export async function getServerSideProps() {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
-    props: {},
+    props: {
+      ...(await serverSideTranslations(locale!, ['common'])),
+    },
   };
-}
+};
