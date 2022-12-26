@@ -66,7 +66,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, Props>(
               href={forgotPageLink}
               className="text-xs text-accent transition-colors duration-200 hover:text-accent-hover focus:font-semibold focus:text-accent-700 focus:outline-none"
             >
-              {t('common:text-forgot-password')}
+              {t('common:FORGOT_PASSWORD')}
             </Link>
           )}
           {forgotPageRouteOnClick && (
@@ -75,7 +75,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, Props>(
               type="button"
               className="text-xs text-accent transition-colors duration-200 hover:text-accent-hover focus:font-semibold focus:text-accent-700 focus:outline-none"
             >
-              {t('common:text-forgot-password')}
+              {t('common:FORGOT_PASSWORD')}
             </button>
           )}
         </div>

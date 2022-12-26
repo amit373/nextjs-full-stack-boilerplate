@@ -19,7 +19,7 @@ const BackButton = () => {
         })}
         strokeWidth={1.7}
       />
-      {t('text-back')}
+      {t('BACK')}
     </button>
   );
 };

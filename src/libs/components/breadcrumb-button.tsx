@@ -10,7 +10,7 @@ interface BreadcrumbButtonProps {
   onClick: () => void;
 }
 
-export const BreadcrumbButton: React.FC<BreadcrumbButtonProps> = ({
+const BreadcrumbButton: React.FC<BreadcrumbButtonProps> = ({
   text,
   image,
   onClick,
@@ -39,3 +39,5 @@ export const BreadcrumbButton: React.FC<BreadcrumbButtonProps> = ({
     )}
   </button>
 );
+
+export default BreadcrumbButton;

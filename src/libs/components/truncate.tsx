@@ -12,8 +12,8 @@ type TruncateProps = {
 
 export const Truncate: React.FC<TruncateProps> = ({
   children,
-  expandedText = 'common:text-less',
-  compressText = 'common:text-read-more',
+  expandedText = 'common:SHOW_LESS',
+  compressText = 'common:SHOW_MORE',
   character = 150,
   btnClassName,
   onClick,

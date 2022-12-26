@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { Main, Meta } from '@/layouts';
 
-const HomeComponent = dynamic(() => import('../containers/Home'), {
+const LoginComponent = dynamic(() => import('../containers/Auth/login'), {
   ssr: true,
 });
 
@@ -13,11 +13,11 @@ interface IProps {}
 const Index: React.FC<IProps> = (): JSX.Element => {
   return (
     <Main
-      showFooter
-      showHeader
-      meta={<Meta title="Home Page" description="Home Page Description" />}
+      showFooter={false}
+      showHeader={false}
+      meta={<Meta title="Login Page" description="Login Page Description" />}
     >
-      <HomeComponent />
+      <LoginComponent />
     </Main>
   );
 };

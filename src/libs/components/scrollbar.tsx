@@ -1,5 +1,3 @@
-import 'overlayscrollbars/css/OverlayScrollbars.css';
-
 import cn from 'classnames';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 

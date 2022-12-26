@@ -6,6 +6,7 @@ import { SessionProvider } from 'next-auth/react';
 import { appWithTranslation } from 'next-i18next';
 
 import { ErrorBoundary, PrivateRoute } from '@/components';
+import { QueryProvider } from '@/libs';
 import { theme } from '@/styles';
 import type { NextPageWithLayout } from '@/types';
 
@@ -22,17 +23,19 @@ function MyApp({
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <SessionProvider session={session}>
-          <ErrorBoundary>
-            {authenticationRequired ? (
-              <PrivateRoute>{<Component {...pageProps} />}</PrivateRoute>
-            ) : (
-              <Component {...pageProps} />
-            )}
-          </ErrorBoundary>
-        </SessionProvider>
-      </ThemeProvider>
+      <SessionProvider session={session}>
+        <QueryProvider pageProps={pageProps}>
+          <ThemeProvider theme={theme}>
+            <ErrorBoundary>
+              {authenticationRequired ? (
+                <PrivateRoute>{<Component {...pageProps} />}</PrivateRoute>
+              ) : (
+                <Component {...pageProps} />
+              )}
+            </ErrorBoundary>
+          </ThemeProvider>
+        </QueryProvider>
+      </SessionProvider>
     </div>
   );
 }

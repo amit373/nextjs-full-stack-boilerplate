@@ -6,8 +6,5 @@
   "PASSWORD": "Password",
   "ERROR_EMAIL_FORMAT": "Please provide valid email",
   "ERROR_EMAIL_REQUIRED": "Email is required",
-  "ERROR_PASSWORD_REQUIRED": "Password is required",
-  "LOADING": "Loading",
-  "SHOW_LESS": "Show Less",
-  "SHOW_MORE": "Show More"
+  "ERROR_PASSWORD_REQUIRED": "Password is required"
 }
